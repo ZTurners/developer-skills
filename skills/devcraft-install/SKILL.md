@@ -1,9 +1,9 @@
 ---
-name: developer-skills
+name: devcraft-install
 description: A brief description of what this skill does
 ---
 
-# developer-skills
+# devcraft-install
 
 Instructions for the agent to follow when this skill is activated.
 
