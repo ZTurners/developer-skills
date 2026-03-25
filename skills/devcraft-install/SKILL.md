@@ -1,6 +1,6 @@
 ---
 name: devcraft-install
-description: A brief description of what this skill does
+description: A installation skill for DevCraft, a development environment setup tool.
 ---
 
 # devcraft-install
