@@ -13,7 +13,7 @@ Use this skill when the user wants to check C++ coding standards for a given cod
 
 ## Instructions
 
-1. Check the [basic coding standards file](./references/basic_cpp_coding_standard.md) for general guidelines
+1. Check the [basic coding standards file](./references/basic_cpp_coding_standard.md) or similar file for general guidelines
 2. Check the current workspace and search {WORKSPACE}/documents/coding_standards folder or any relevant files for specific coding standards that the user may have provided.
 3. Check the codebase for any violations of the coding standards and provide feedback on how to fix them. Figure out which rules are being violated and provide specific examples from the codebase to illustrate the issues.
 4. Provide a summary of the findings and suggest improvements to the codebase based on the coding standards.
