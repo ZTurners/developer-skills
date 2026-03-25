@@ -1,0 +1,22 @@
+{
+  "name": "dev-skills",
+  "version": "1.0.0",
+  "description": "Skill repositories for developers, installable via npx",
+  "main": "src/index.js",
+  "bin": {
+    "dev-skills": "./bin/dev-skills.js"
+  },
+  "scripts": {
+    "test": "node --test test/index.test.js"
+  },
+  "keywords": [
+    "dev-skills",
+    "cli",
+    "scaffold",
+    "skills"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
