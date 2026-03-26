@@ -17,7 +17,7 @@ Use this skill when the user wants to check C++ coding standards for a given cod
 
 ## Instructions
 ### Main Steps Instructions
-
+0. Following the "Memory Policy" specified above
 1. Check the [basic coding standards file](./references/basic_cpp_coding_standard.md) or similar file for general guidelines.
 2. Check the current workspace and search {WORKSPACE}/documents/coding_standards folder or any relevant files for specific coding standards that the user may have provided.
 3. List all found standards files and their sections. For each section, identify the specific rules that need to be checked in the codebase. This can include rules related to naming conventions, code formatting, best practices, and any other relevant coding standards.
