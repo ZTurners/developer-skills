@@ -15,8 +15,13 @@ Use this skill when the user wants to check C++ coding standards for a given cod
 - Session Memory [NoAccess, NoStore]
 - Repo Memory [NoAccess, NoStore]
 
+## Constraints
+- Do not make broad refactors unless the user explicitly asks.
+- Do not change unrelated files.
+- Do not prioritize formatting over correctness/safety findings.
+- Do not approve code that violates project-critical style or ownership rules.
+
 ## Instructions
-### Main Steps Instructions
 0. Following the "Memory Policy" specified above
 1. Check the [basic coding standards file](./references/basic_cpp_coding_standard.md) or similar file for general guidelines.
 2. Check the current workspace and search {WORKSPACE}/documents/coding_standards folder or any relevant files for specific coding standards that the user may have provided.
