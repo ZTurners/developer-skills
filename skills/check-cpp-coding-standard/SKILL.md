@@ -1,6 +1,6 @@
 ---
 name: check-cpp-coding-standard
-description: A skill for checking C++ coding standards for a given codebase.
+description: description: A skill for checking C++ coding standards for a given codebase. Use when the user requests C++ code quality checks.
 ---
 
 # check-cpp-coding-standard
