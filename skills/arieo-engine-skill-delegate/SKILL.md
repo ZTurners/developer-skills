@@ -4,12 +4,11 @@ description: >
   Detects when the user is operating in an ArieoEngine context (by repository
   name, cwd, or explicit mention of "ArieoEngine") and automatically discovers,
   caches, and delegates to the most relevant sub-skill found in
-  {WORKSPACE}/documents/skills/*.skill.md. USE FOR: any ArieoEngine operation
+  {WORKSPACE}/document[s]/**/*.skill.md. USE FOR: any ArieoEngine operation
   or action when inside the ArieoEngine repository. DO NOT USE FOR: general
   coding questions unrelated to ArieoEngine.
 applyTo: "**"
 ---
-
 # arieo-engine-skill-delegate
 
 A dispatch skill that discovers ArieoEngine sub-skills at runtime, caches
@@ -75,12 +74,14 @@ Re-read the Memory Policy section above before doing anything else.
 ### Step 1 — Confirm ArieoEngine Context
 
 Check at least one of:
+
 - Repository name or current working directory contains "ArieoEngine"
   (case-insensitive).
 - User's request explicitly references "ArieoEngine".
 - A `documents/skills/` folder exists at the workspace root.
 
 If none of the above is true, **stop** and respond:
+
 > "This skill applies only to ArieoEngine repositories. No ArieoEngine
 > context was detected."
 
@@ -133,6 +134,7 @@ If none of the above is true, **stop** and respond:
 ### Step 5 — Post-Delegation
 
 After the subagent completes:
+
 - Note in the session cache (as a comment) which skill was last used and
   when, so future requests in the same session can up-weight that skill.
 - Do **not** write anything to user or repo memory.
@@ -141,12 +143,12 @@ After the subagent completes:
 
 ## Error Handling
 
-| Situation | Action |
-|-----------|--------|
-| `documents/skills/` folder missing | Inform the user; suggest they create it |
-| No `*.skill.md` files found | Inform the user; offer to scaffold a skill file |
-| Selected skill file unreadable | Skip it, try next-best candidate, warn user |
-| Cache file corrupt / unparseable | Delete it and rebuild from scratch |
+| Situation                            | Action                                          |
+| ------------------------------------ | ----------------------------------------------- |
+| `documents/skills/` folder missing | Inform the user; suggest they create it         |
+| No `*.skill.md` files found        | Inform the user; offer to scaffold a skill file |
+| Selected skill file unreadable       | Skip it, try next-best candidate, warn user     |
+| Cache file corrupt / unparseable     | Delete it and rebuild from scratch              |
 
 ---
 
