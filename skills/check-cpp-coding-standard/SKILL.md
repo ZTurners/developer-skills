@@ -11,9 +11,9 @@ Instructions for the agent to follow when this skill is activated.
 Use this skill when the user wants to check C++ coding standards for a given codebase. This can include checking for code quality, identifying potential bugs, and suggesting improvements.
 
 ## Memory Policy
-- User Memory [NoRead, NoStore]
+- User Memory [NoAccess, NoStore]
 - Session Memory [NoAccess, NoStore]
-- Repo Memory [NoRead, NoStore]
+- Repo Memory [NoAccess, NoStore]
 
 ## Instructions
 ### Main Steps Instructions
