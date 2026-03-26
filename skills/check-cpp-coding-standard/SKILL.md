@@ -18,7 +18,7 @@ Use this skill when the user wants to check C++ coding standards for a given cod
 2. Check the current workspace and search {WORKSPACE}/documents/coding_standards folder or any relevant files for specific coding standards that the user may have provided.
 3. List all found standards files and their sections. For each section, identify the specific rules that need to be checked in the codebase. This can include rules related to naming conventions, code formatting, best practices, and any other relevant coding standards.
 4. List cpp files needs to be checked from the context and the user input.
-5. For each file, spawn a subagent following "Standard-Checker Subagent Instructions" in this file. The subagent will be responsible for checking the specific coding standards against the code in the file and providing feedback on any violations or areas for improvement.
+5. Spawn one subagent for each file. The subagent will be responsible for checking the specific coding standards against the code in the file and providing feedback on any violations or areas for improvement.
 6. Provide a summary of the findings, including any violations of the coding standards and suggestions for improvement. This summary should be clear and actionable, allowing the user to understand what changes need to be made to adhere to the coding standards.
 7. In the summary, *DO NOT* only provide ambiguous feedback like following:
   "18 files have naming convention issues" (fix: list the specific files and lines, and broken rule sections in which standard file).
