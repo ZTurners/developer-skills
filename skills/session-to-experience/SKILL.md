@@ -1,6 +1,6 @@
 ---
 name: session-to-experience
-description: "Saves or stores the current session into experience knowledge files (*.exp.md). Use when the user asks to save/store the current session, conversation, learnings, QA, or solutions into exp/knowledge, exp/knowledage, or copilot/experience files."
+description: "Saves or stores the current session into experience knowledge files (*.exp.md). Use when the user asks to save exp for the current session, conversation, learnings, QA, or solutions into copilot/experience files."
 ---
 # generate-experience
 
@@ -16,8 +16,7 @@ Use this skill when the user asks for any of the following:
 - Persist the current discussion as experience or knowledge.
 - Convert the current conversation into reusable how-to notes.
 - Update or create `.exp.md` files from the current session.
-- Save learnings into `exp/knowledge`, `exp/knowledage`, or
-  `copilot/experience`.
+- Save learnings into `copilot/experience` files.
 
 ## Memory Policy
 
