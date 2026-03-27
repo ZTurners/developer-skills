@@ -1,5 +1,5 @@
 ---
-name: arieo-engine-skill-delegate
+name: skill-delegate
 description: >
   Detects when the user is operating in an ArieoEngine context (by repository
   name, cwd, or explicit mention of "ArieoEngine") and automatically discovers,
@@ -9,7 +9,7 @@ description: >
   coding questions unrelated to ArieoEngine.
 applyTo: "**"
 ---
-# arieo-engine-skill-delegate
+# skill-delegate
 
 A dispatch skill that discovers ArieoEngine sub-skills at runtime, caches
 their metadata, selects the best match for the current request, and runs it
