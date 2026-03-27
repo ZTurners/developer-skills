@@ -74,16 +74,15 @@ the user there is nothing substantial to save yet.
 
 ### Step 2 - Locate the Experience Folder
 
-For **creating** new experience files, the default target is:
+New experience files are **always** created in:
 
     {WORKSPACE}/copilot/experience/.local/
 
-This keeps newly created files local to the user.
+This keeps created files local to the user. There are no exceptions — even if
+the user names a different path, still place the file inside `.local/`.
 
-If the user explicitly names a different path, use that instead.
-
-If the `.local/` folder does not exist yet, create it when writing the first
-file.
+If the `.local/` folder does not exist yet, create it automatically before
+writing the first file.
 
 For **searching** existing experience files (used by Steps 3 and the
 "Learn from experience" flow), always search:
