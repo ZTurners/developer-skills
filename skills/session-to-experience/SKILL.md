@@ -39,8 +39,8 @@ Use this skill when the user asks for any of the following:
 - Preserve existing user-written content whenever possible. Merge carefully
   instead of replacing whole files.
 - If one session covers multiple topics, update multiple files.
-- New experience files are always created in `copilot/experience/.local/`
-  by default. This keeps them local to the user.
+- New experience files are **always** created in
+  `copilot/experience/.local/`. No exceptions.
 - When searching for experience files, always search the full tree
   `copilot/experience/**/*.exp.md` which includes the `.local/` subfolder.
 
@@ -125,8 +125,9 @@ Before making any file changes, present a concise plan to the user that
 includes:
 
 - The extracted topics.
-- Which file each topic will update, or the new file that will be created.
-- The target experience folder if it had to be inferred or created.
+- The full path of each file (always under `copilot/experience/.local/`)
+  that will be updated or created.
+- Whether the `.local/` folder needs to be created.
 
 Ask the user to confirm the update/create plan.
 
@@ -172,9 +173,10 @@ When updating an existing file:
 
 When creating a new file:
 
-- Place it in `copilot/experience/.local/` by default.
+- **Always** place it in `copilot/experience/.local/`. No exceptions.
+  If the `.local/` folder does not exist, create it first.
 - Name it using a clear kebab-case topic name, for example
-  `python-env-debugging.exp.md`.
+  `copilot/experience/.local/python-env-debugging.exp.md`.
 - Fill all three required parts: topic heading and description, `## How to`,
   and `## QA`.
 
@@ -255,7 +257,7 @@ Use this format before confirmation:
 Proposed experience updates
 
 - Topic: <topic>
-  File: <existing-file.exp.md | new-file.exp.md>
+  File: <copilot/experience/.local/new-file.exp.md | copilot/experience/.local/existing-file.exp.md>
   Action: <update | create>
   Summary: <one line>
 
@@ -267,8 +269,8 @@ Use this format after completion:
 ```md
 Experience files updated
 
-- Updated: <file>
-- Created: <file>
+- Updated: <copilot/experience/.local/file.exp.md>
+- Created: <copilot/experience/.local/file.exp.md>
 
 Stored topics: <topic 1>, <topic 2>
 ```
