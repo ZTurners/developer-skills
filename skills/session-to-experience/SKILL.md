@@ -1,12 +1,13 @@
 ---
 name: session-to-experience
-description: "Saves or stores the current session into experience knowledge files (*.exp.md). Use when the user asks to save exp for the current session, conversation, learnings, QA, or solutions into copilot/experience files."
+description: "Saves or stores the current session into experience knowledge files (*.exp.md). Use when the user asks to save exp, learn from experience, share experience, or store the current session, conversation, learnings, QA, or solutions into copilot/experience files."
 ---
-# generate-experience
+# session-to-experience
 
 Review the current session, extract reusable knowledge by topic, match that
 knowledge to existing experience files when possible, ask the user to confirm
 the proposed updates, and then update or create the approved `.exp.md` files.
+Also supports learning from existing experience files and advising on sharing.
 
 ## When to use
 
@@ -17,6 +18,8 @@ Use this skill when the user asks for any of the following:
 - Convert the current conversation into reusable how-to notes.
 - Update or create `.exp.md` files from the current session.
 - Save learnings into `copilot/experience` files.
+- Learn from experience, review past experience, or recall knowledge.
+- Share experience files with others.
 
 ## Memory Policy
 
@@ -36,6 +39,10 @@ Use this skill when the user asks for any of the following:
 - Preserve existing user-written content whenever possible. Merge carefully
   instead of replacing whole files.
 - If one session covers multiple topics, update multiple files.
+- New experience files are always created in `copilot/experience/.local/`
+  by default. This keeps them local to the user.
+- When searching for experience files, always search the full tree
+  `copilot/experience/**/*.exp.md` which includes the `.local/` subfolder.
 
 ## Instructions
 
@@ -67,20 +74,28 @@ the user there is nothing substantial to save yet.
 
 ### Step 2 - Locate the Experience Folder
 
-Find the most likely storage location in this priority order:
+For **creating** new experience files, the default target is:
 
-1. A path explicitly named by the user.
-2. `{WORKSPACE}/copilot/experience/`
-3. `{WORKSPACE}/exp/knowledge/`
-4. `{WORKSPACE}/exp/knowledage/`
-5. Any workspace folder that already contains `*.exp.md` files.
+    {WORKSPACE}/copilot/experience/.local/
 
-If no suitable folder exists, propose a new folder path and ask the user to
-confirm it together with the file update plan.
+This keeps newly created files local to the user.
+
+If the user explicitly names a different path, use that instead.
+
+If the `.local/` folder does not exist yet, create it when writing the first
+file.
+
+For **searching** existing experience files (used by Steps 3 and the
+"Learn from experience" flow), always search:
+
+    {WORKSPACE}/copilot/experience/**/*.exp.md
+
+This includes both shared files in `copilot/experience/` and local files in
+`copilot/experience/.local/`.
 
 ### Step 3 - Find Candidate Experience Files
 
-Search the chosen experience folder for `*.exp.md` files.
+Search `{WORKSPACE}/copilot/experience/**/*.exp.md` (including `.local/`).
 
 For each topic from Step 1:
 
@@ -158,6 +173,7 @@ When updating an existing file:
 
 When creating a new file:
 
+- Place it in `copilot/experience/.local/` by default.
 - Name it using a clear kebab-case topic name, for example
   `python-env-debugging.exp.md`.
 - Fill all three required parts: topic heading and description, `## How to`,
@@ -170,6 +186,57 @@ After writing the approved files, report:
 - Which files were updated.
 - Which files were created.
 - A one-line summary of the topics stored.
+
+---
+
+## Learn from Experience
+
+When the user wants to learn from or recall existing experience, follow this
+flow instead of the save flow above.
+
+### L1 - Get the Keyword
+
+If the user did not provide a keyword or topic, ask:
+
+> What keyword or topic would you like to search for in experience files?
+
+Proceed once you have at least one keyword.
+
+### L2 - Search Experience Filenames
+
+Search `{WORKSPACE}/copilot/experience/**/*.exp.md` (including `.local/`)
+for filenames that contain or relate to the keyword. List every matching file
+with its relative path.
+
+If no files match, tell the user and stop.
+
+### L3 - Ask the User to Confirm Which Files to Load
+
+Present the matching filenames and ask which ones to load. The user may:
+
+- Pick specific files by number or name.
+- Answer **"all"** to approve loading every matched file.
+
+Do not read any file until the user confirms.
+
+### L4 - Load and Present the Approved Files
+
+Fully read only the approved files. Present their content to the user in a
+clear, readable format so they can learn from it.
+
+---
+
+## Sharing Experience
+
+When the user asks how to share experience files with others, respond with
+the following guidance and **do not perform any file operations**:
+
+> To share an experience file, move it from
+> `copilot/experience/.local/` to `copilot/experience/`.
+> Files in `copilot/experience/` (outside `.local/`) are visible to everyone
+> who has access to the repository. Files in `.local/` stay local to you.
+
+---
 
 ## Content Rules
 
