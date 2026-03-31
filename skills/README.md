@@ -16,7 +16,7 @@ It answers the question *"what exists and how does it work?"*
 
 - Written as reference documentation: architecture, APIs, module contracts,
   build system rules, platform support.
-- Organized by system and layer (e.g. `arieo_engine/00_core/`,
+- Organized by system and layer (e.g. `00_core/`,
   `01_interfaces/`, `02_modules/`).
 - Updated by the `update-knowledge` skill, which diffs the source tree against
   the last recorded commit and regenerates only the stale sections.

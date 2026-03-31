@@ -26,5 +26,11 @@ npx skills add git@github.com:ZTurners/developer-skills.git --list
 
 | Skill | Name | Description |
 |-------|------|-------------|
-| session-to-experience | `session-to-experience` | Extracts reusable knowledge from the current session and saves it into `*.exp.md` experience files |
-| common | `common` | Shared memory policy instruction used across other skills |
+| `session-to-experience` | [session-to-experience](skills/session-to-experience/SKILL.md) | Extracts reusable knowledge from the current session and saves it into `*.exp.md` experience files |
+| `project-to-knowledge` | [project-to-knowledge](skills/project-to-knowledge/SKILL.md) | Generates structured Markdown knowledge docs for a project, or loads existing knowledge into the session |
+| `skill-delegate` | [skill-delegate](skills/skill-delegate/SKILL.md) | Discovers project-specific skills under `copilot/skills/`, selects the best match, and delegates to it via subagent |
+| `common` | [common](skills/common/memory_policy.instruction.md) | Shared memory policy instruction used across other skills |
+
+## Concepts
+
+See [skills/README.md](skills/README.md) for a full explanation of **Knowledge**, **Experience**, and **Memory** — the three pillars of the Copilot support system used by these skills.

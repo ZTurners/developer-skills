@@ -33,6 +33,9 @@ Use this skill when the user asks for any of the following:
 
 - Do not write any experience file until the user confirms the proposed
   updates and creates.
+- Do not fully read any experience file until the user confirms which files
+  to load or update. Lightweight header reads (first 20–40 lines) for
+  candidate matching are permitted before confirmation.
 - Before confirmation, only inspect candidate experience file headers and short
   introductions. Do not fully read unrelated files.
 - Prefer updating an existing topic file over creating a duplicate topic file.
