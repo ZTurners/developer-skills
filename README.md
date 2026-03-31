@@ -34,3 +34,55 @@ npx skills add git@github.com:ZTurners/developer-skills.git --list
 ## Concepts
 
 See [skills/README.md](skills/README.md) for a full explanation of **Knowledge**, **Experience**, and **Memory** — the three pillars of the Copilot support system used by these skills.
+
+---
+
+## Usage Examples
+
+### Save the current session as experience
+
+```
+save exp
+```
+```
+update exp about authentication and caching
+```
+
+### Learn from past experience
+
+```
+learn from experience about database migrations
+```
+```
+recall experience about build errors
+```
+
+### Generate knowledge for this project
+
+```
+update knowledge
+```
+```
+generate knowledge for this project
+```
+
+### Load project knowledge into the session
+
+```
+learn from knowledge
+```
+```
+load knowledge — just the build and API sections
+```
+
+### Delegate to a project-specific skill
+
+```
+build the auth module
+```
+```
+run the linter and fix all warnings
+```
+> `skill-delegate` picks the best matching skill from `copilot/skills/` automatically.
+> If the selected skill declares `## Preload Knowledge` or `## Preload Experience`
+> sections, the relevant files are loaded into the session before delegation.
